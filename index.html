@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Automaten Service | Automatenaufsteller Stuttgart & Frankfurt</title>
+    <meta name="description" content="Royal Automaten Service – Ihr zuverlässiger Automatenaufsteller im Großraum Stuttgart und Frankfurt. Aufstellung, Wartung, Reparatur und Übernahme von Spielhallen.">
+    <meta name="keywords" content="Automatenaufsteller, Spielautomaten, Stuttgart, Frankfurt, Automatenservice, Spielhalle, Unterhaltungsautomaten, Geldspielgeräte">
+    <meta property="og:title" content="Royal Automaten Service | Automatenaufsteller Stuttgart & Frankfurt">
+    <meta property="og:description" content="Professioneller Automatenservice im Großraum Stuttgart und Frankfurt. Aufstellung, Wartung & Übernahme.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://royal-automaten.de">
+    <link rel="canonical" href="https://royal-automaten.de">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy-deep: #060a14;
+            --navy: #0e1525;
+            --navy-light: #151d30;
+            --navy-lighter: #1e2a45;
+            --royal-blue: #1a3a8a;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dark: #b08a2e;
+            --gold-glow: rgba(212, 168, 67, 0.12);
+            --white: #f5f5f0;
+            --white-muted: #c5c5be;
+            --text-body: #9ca3af;
+            --font-display: 'Cinzel', serif;
+            --font-body: 'Outfit', sans-serif;
+            --ease: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+        body {
+            font-family: var(--font-body);
+            background: var(--navy-deep);
+            color: var(--text-body);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* NAV */
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0.8rem 2rem; transition: all 0.4s var(--ease); background: transparent; }
+        .nav.scrolled { background: rgba(6,10,20,0.96); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(212,168,67,0.08); padding: 0.5rem 2rem; }
+        .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+        .nav-logo { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
+        .nav-logo img { height: 48px; width: auto; transition: height 0.4s var(--ease); }
+        .nav.scrolled .nav-logo img { height: 38px; }
+        .nav-links { display: flex; align-items: center; gap: 2.2rem; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--white-muted); font-size: 0.88rem; font-weight: 500; letter-spacing: 0.5px; transition: color 0.3s var(--ease); position: relative; }
+        .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--gold); transition: width 0.3s var(--ease); }
+        .nav-links a:hover { color: var(--gold); }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-cta { background: linear-gradient(135deg, var(--gold), var(--gold-dark)) !important; color: var(--navy-deep) !important; padding: 0.6rem 1.4rem !important; border-radius: 6px; font-weight: 600 !important; transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease) !important; }
+        .nav-cta::after { display: none !important; }
+        .nav-cta:hover { color: var(--navy-deep) !important; transform: translateY(-1px); box-shadow: 0 4px 20px rgba(212,168,67,0.3); }
+        .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+        .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--white); margin: 5px 0; transition: all 0.3s var(--ease); }
+
+        /* HERO */
+        .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; padding: 7rem 2rem 4rem; }
+        .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 50% at 50% 35%, rgba(26,58,138,0.12) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 50% 50%, rgba(212,168,67,0.05) 0%, transparent 50%); }
+        .hero::after { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(212,168,67,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(212,168,67,0.02) 1px, transparent 1px); background-size: 80px 80px; mask-image: radial-gradient(ellipse 60% 50% at 50% 50%, black, transparent); }
+        .hero-ornament { position: absolute; width: 120px; height: 120px; border: 1px solid rgba(212,168,67,0.08); pointer-events: none; }
+        .hero-ornament.tl { top: 60px; left: 40px; border-right: none; border-bottom: none; }
+        .hero-ornament.br { bottom: 40px; right: 40px; border-left: none; border-top: none; }
+        .hero-content { position: relative; z-index: 2; max-width: 900px; }
+        .hero-logo { width: clamp(160px,25vw,260px); height: auto; margin: 0 auto 2.5rem; animation: fadeUp 0.8s ease-out; filter: drop-shadow(0 0 40px rgba(212,168,67,0.15)); }
+        .hero h1 { font-family: var(--font-display); font-size: clamp(1.8rem,4.5vw,3.2rem); font-weight: 700; color: var(--white); line-height: 1.2; margin-bottom: 1.5rem; letter-spacing: 0.5px; animation: fadeUp 0.8s ease-out 0.15s both; }
+        .hero h1 .gold { color: var(--gold); }
+        .hero-sub { font-size: 1.1rem; color: var(--text-body); max-width: 640px; margin: 0 auto 2.5rem; line-height: 1.8; animation: fadeUp 0.8s ease-out 0.3s both; }
+        .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; animation: fadeUp 0.8s ease-out 0.45s both; }
+        .hero-regions { display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap; margin-top: 2.5rem; animation: fadeUp 0.8s ease-out 0.55s both; }
+        .hero-region-tag { background: rgba(212,168,67,0.06); border: 1px solid rgba(212,168,67,0.12); color: var(--gold-light); padding: 0.3rem 1rem; border-radius: 100px; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.8px; }
+
+        .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 1.8rem; border-radius: 6px; font-family: var(--font-body); font-size: 0.95rem; font-weight: 600; text-decoration: none; transition: all 0.35s var(--ease); cursor: pointer; border: none; }
+        .btn-primary { background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: var(--navy-deep); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(212,168,67,0.3); }
+        .btn-secondary { background: rgba(255,255,255,0.04); color: var(--white); border: 1px solid rgba(255,255,255,0.1); }
+        .btn-secondary:hover { background: rgba(255,255,255,0.08); border-color: rgba(212,168,67,0.25); transform: translateY(-2px); }
+
+        .scroll-indicator { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: var(--gold); font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; opacity: 0.4; }
+        .scroll-indicator .arrow { width: 18px; height: 18px; border-right: 1.5px solid var(--gold); border-bottom: 1.5px solid var(--gold); transform: rotate(45deg); animation: bounce 2s infinite; }
+
+        /* GOLD LINE */
+        .gold-line { height: 1px; border: none; background: linear-gradient(90deg, transparent, rgba(212,168,67,0.3), transparent); }
+
+        /* INTRO */
+        .intro { padding: 5rem 2rem; background: var(--navy); text-align: center; }
+        .intro-inner { max-width: 800px; margin: 0 auto; }
+        .intro p { font-size: 1.1rem; line-height: 1.9; color: var(--white-muted); }
+        .intro p + p { margin-top: 1rem; }
+        .intro .highlight { color: var(--gold); font-weight: 600; }
+
+        /* SECTIONS */
+        .section { padding: 6rem 2rem; }
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-label { font-size: 0.72rem; color: var(--gold); letter-spacing: 3px; text-transform: uppercase; font-weight: 600; margin-bottom: 0.8rem; }
+        .section-title { font-family: var(--font-display); font-size: clamp(1.6rem,3.5vw,2.3rem); font-weight: 700; color: var(--white); line-height: 1.25; }
+        .section-title .gold { color: var(--gold); }
+        .section-subtitle { margin-top: 1rem; font-size: 1rem; color: var(--text-body); max-width: 600px; margin-left: auto; margin-right: auto; }
+
+        /* SERVICES */
+        .services { background: var(--navy-deep); }
+        .services-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.3rem; }
+        .service-card { background: var(--navy); border: 1px solid rgba(255,255,255,0.04); border-radius: 12px; padding: 2.2rem 1.8rem; transition: all 0.4s var(--ease); position: relative; overflow: hidden; }
+        .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--royal-blue), var(--gold)); opacity: 0; transition: opacity 0.4s var(--ease); }
+        .service-card:hover { border-color: rgba(212,168,67,0.12); transform: translateY(-4px); box-shadow: 0 16px 50px rgba(0,0,0,0.35); }
+        .service-card:hover::before { opacity: 1; }
+        .service-icon { width: 48px; height: 48px; background: var(--gold-glow); border: 1px solid rgba(212,168,67,0.15); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 1.3rem; }
+        .service-card h3 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--white); margin-bottom: 0.7rem; }
+        .service-card p { font-size: 0.88rem; line-height: 1.7; }
+
+        /* PRODUCTS */
+        .products { background: var(--navy); }
+        .products-note { background: var(--navy-deep); border: 1px solid rgba(212,168,67,0.1); border-radius: 16px; padding: 3rem; max-width: 700px; margin: 0 auto; }
+        .products-note p { font-size: 1rem; line-height: 1.8; color: var(--white-muted); }
+        .products-note .cta-text { margin-top: 1.5rem; color: var(--gold); font-weight: 600; font-size: 0.95rem; }
+
+        /* TAKEOVER */
+        .takeover { background: var(--navy-deep); }
+        .takeover-content { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+        .takeover-text h2 { font-family: var(--font-display); font-size: clamp(1.4rem,2.5vw,1.9rem); font-weight: 700; color: var(--white); line-height: 1.3; margin-bottom: 1.2rem; }
+        .takeover-text h2 .gold { color: var(--gold); }
+        .takeover-text p { font-size: 0.95rem; line-height: 1.8; margin-bottom: 1rem; }
+        .takeover-text .btn { margin-top: 1rem; }
+        .takeover-visual { background: linear-gradient(135deg, var(--navy), var(--navy-light)); border: 1px solid rgba(212,168,67,0.08); border-radius: 16px; padding: 2.5rem; text-align: center; }
+        .takeover-visual .icon { font-size: 3rem; margin-bottom: 1rem; }
+        .takeover-points { list-style: none; text-align: left; }
+        .takeover-points li { padding: 0.6rem 0; border-bottom: 1px solid rgba(255,255,255,0.04); font-size: 0.9rem; color: var(--white-muted); display: flex; align-items: center; gap: 0.7rem; }
+        .takeover-points li:last-child { border-bottom: none; }
+        .takeover-points li::before { content: '✓'; color: var(--gold); font-weight: 700; font-size: 0.85rem; }
+
+        /* REGIONS */
+        .regions { background: var(--navy); }
+        .regions-grid { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        .region-card { background: var(--navy-deep); border: 1px solid rgba(255,255,255,0.05); border-radius: 14px; padding: 2.5rem 2rem; text-align: center; }
+        .region-card h3 { font-family: var(--font-display); font-size: 1.2rem; color: var(--gold); margin-bottom: 0.5rem; }
+        .region-card p { font-size: 0.88rem; margin-bottom: 1.2rem; }
+        .region-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center; }
+        .region-tag { background: rgba(212,168,67,0.06); border: 1px solid rgba(212,168,67,0.1); color: var(--gold-light); padding: 0.28rem 0.8rem; border-radius: 100px; font-size: 0.75rem; font-weight: 500; }
+
+        /* PROCESS */
+        .process { background: var(--navy-deep); }
+        .process-steps { max-width: 800px; margin: 0 auto; }
+        .process-step { display: grid; grid-template-columns: 56px 1fr; gap: 1.8rem; padding: 1.8rem 0; }
+        .process-step:not(:last-child) { border-bottom: 1px solid rgba(255,255,255,0.03); }
+        .process-number { width: 48px; height: 48px; background: var(--gold-glow); border: 1px solid rgba(212,168,67,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 700; font-size: 1rem; color: var(--gold); }
+        .process-step h3 { font-family: var(--font-display); font-size: 1.05rem; color: var(--white); font-weight: 600; margin-bottom: 0.4rem; }
+        .process-step p { font-size: 0.88rem; }
+
+        /* CONTACT */
+        .contact { background: var(--navy); }
+        .contact-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.3fr; gap: 3rem; }
+        .contact-info h3 { font-family: var(--font-display); font-size: 1.35rem; color: var(--white); margin-bottom: 1rem; }
+        .contact-info > p { margin-bottom: 2rem; font-size: 0.95rem; line-height: 1.7; }
+        .contact-detail { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.1rem; }
+        .contact-detail-icon { width: 38px; height: 38px; background: var(--gold-glow); border: 1px solid rgba(212,168,67,0.12); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 0.95rem; flex-shrink: 0; }
+        .contact-detail a, .contact-detail span { color: var(--white-muted); text-decoration: none; font-size: 0.92rem; transition: color 0.3s var(--ease); }
+        .contact-detail a:hover { color: var(--gold); }
+        .contact-form { background: var(--navy-deep); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; padding: 2.2rem; }
+        .form-group { margin-bottom: 1.1rem; }
+        .form-group label { display: block; font-size: 0.75rem; color: var(--white-muted); font-weight: 500; margin-bottom: 0.35rem; letter-spacing: 0.5px; text-transform: uppercase; }
+        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 0.8rem 1rem; background: var(--navy); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; color: var(--white); font-family: var(--font-body); font-size: 0.92rem; transition: border-color 0.3s var(--ease); }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--gold); }
+        .form-group textarea { resize: vertical; min-height: 110px; }
+        .form-group select { -webkit-appearance: none; appearance: none; cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239ca3af' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem; }
+        .form-group select option { background: var(--navy); color: var(--white); }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+        .form-submit { width: 100%; padding: 0.9rem; background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: var(--navy-deep); font-family: var(--font-body); font-size: 0.95rem; font-weight: 700; border: none; border-radius: 8px; cursor: pointer; transition: all 0.35s var(--ease); margin-top: 0.5rem; }
+        .form-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(212,168,67,0.3); }
+        .form-note { text-align: center; font-size: 0.72rem; color: var(--text-body); margin-top: 0.8rem; opacity: 0.7; }
+
+        /* FOOTER */
+        .footer { background: var(--navy-deep); border-top: 1px solid rgba(255,255,255,0.04); padding: 2.5rem 2rem 1.5rem; }
+        .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.2rem; }
+        .footer-left { display: flex; align-items: center; gap: 0.8rem; }
+        .footer-left img { height: 32px; width: auto; }
+        .footer-copy { font-size: 0.82rem; color: var(--text-body); }
+        .footer-links { display: flex; gap: 1.8rem; }
+        .footer-links a { color: var(--text-body); text-decoration: none; font-size: 0.82rem; transition: color 0.3s var(--ease); }
+        .footer-links a:hover { color: var(--gold); }
+
+        /* ANIMATIONS */
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes bounce { 0%, 100% { transform: rotate(45deg) translateY(0); } 50% { transform: rotate(45deg) translateY(5px); } }
+        .reveal { opacity: 0; transform: translateY(25px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) { .takeover-content, .contact-grid, .regions-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 700px) {
+            .nav-links { display: none; position: fixed; inset: 0; background: rgba(6,10,20,0.98); flex-direction: column; justify-content: center; align-items: center; gap: 2rem; z-index: 999; }
+            .nav-links.active { display: flex; }
+            .nav-links a { font-size: 1.15rem; }
+            .nav-toggle { display: block; z-index: 1001; }
+            .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+            .nav-toggle.active span:nth-child(2) { opacity: 0; }
+            .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+            .hero { padding: 7rem 1.5rem 4rem; min-height: auto; }
+            .hero-ornament { display: none; }
+            .form-row { grid-template-columns: 1fr; }
+            .footer-inner { flex-direction: column; text-align: center; }
+            .footer-links { flex-wrap: wrap; justify-content: center; }
+            .section { padding: 4rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo"><img src="logo.jpg" alt="Royal Automaten Service Logo"></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#leistungen" onclick="closeMenu()">Leistungen</a></li>
+                <li><a href="#automaten" onclick="closeMenu()">Automaten</a></li>
+                <li><a href="#regionen" onclick="closeMenu()">Regionen</a></li>
+                <li><a href="#ablauf" onclick="closeMenu()">Ablauf</a></li>
+                <li><a href="#kontakt" onclick="closeMenu()" class="nav-cta">Anfrage stellen</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Menü"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-ornament tl"></div>
+        <div class="hero-ornament br"></div>
+        <div class="hero-content">
+            <img src="logo.jpg" alt="777 Royal Automaten Service" class="hero-logo">
+            <h1>Ihr professioneller<br><span class="gold">Automatenaufsteller</span></h1>
+            <p class="hero-sub">Aufstellung, Wartung und Full-Service für Unterhaltungsautomaten — zuverlässig und persönlich im Großraum Stuttgart und Frankfurt.</p>
+            <div class="hero-actions">
+                <a href="#kontakt" class="btn btn-primary">Jetzt Anfrage stellen →</a>
+                <a href="#automaten" class="btn btn-secondary">Unsere Automaten</a>
+            </div>
+            <div class="hero-regions">
+                <span class="hero-region-tag">📍 Großraum Stuttgart</span>
+                <span class="hero-region-tag">📍 Großraum Frankfurt</span>
+            </div>
+        </div>
+        <div class="scroll-indicator"><span>Mehr erfahren</span><div class="arrow"></div></div>
+    </section>
+
+    <hr class="gold-line">
+    <section class="intro">
+        <div class="intro-inner reveal">
+            <p>Unser Unternehmen bietet Ihnen eine <span class="highlight">umfangreiche Auswahl an Automaten</span>. Gerne empfehlen wir Ihnen passende Geräte oder Sie wählen selbstständig Geräte für Ihren Standort aus.</p>
+            <p>Wir bieten die <span class="highlight">Übernahme von Standorten und Spielhallen</span> zu angemessenen Konditionen an.</p>
+            <p>Suchen Sie einen zuverlässigen und erfahrenen Automatenaufsteller für eine erfolgreiche Zusammenarbeit? Dann nutzen Sie gerne unser <a href="#kontakt" style="color: var(--gold); text-decoration: underline;">Kontaktformular</a> und wir werden uns zeitnah bei Ihnen melden.</p>
+        </div>
+    </section>
+    <hr class="gold-line">
+
+    <section class="section services" id="leistungen">
+        <div class="section-header reveal">
+            <div class="section-label">Unser Service</div>
+            <h2 class="section-title">Unsere <span class="gold">Leistungen</span></h2>
+            <p class="section-subtitle">Alles aus einer Hand — von der Beratung bis zur laufenden Betreuung</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card reveal"><div class="service-icon">📍</div><h3>Aufstellung</h3><p>Professionelle Aufstellung von Unterhaltungsautomaten in Gaststätten, Spielhallen, Imbissen und Bars — inklusive Standortberatung.</p></div>
+            <div class="service-card reveal"><div class="service-icon">🔧</div><h3>Wartung & Pflege</h3><p>Regelmäßige Wartung und Inspektion Ihrer Geräte für maximale Laufzeit und Spielsicherheit. Ihre Automaten immer in Top-Zustand.</p></div>
+            <div class="service-card reveal"><div class="service-icon">⚡</div><h3>Reparatur</h3><p>Schnelle und fachgerechte Reparatur bei Störungen — in den meisten Fällen direkt vor Ort. Minimale Ausfallzeiten garantiert.</p></div>
+            <div class="service-card reveal"><div class="service-icon">🔄</div><h3>Gerätetausch</h3><p>Austausch und Rotation für frische Abwechslung. Immer die neuesten Spiele und Modelle für Ihre Gäste verfügbar.</p></div>
+            <div class="service-card reveal"><div class="service-icon">🏢</div><h3>Standort-Übernahme</h3><p>Übernahme von bestehenden Standorten und Spielhallen zu fairen und angemessenen Konditionen. Diskret und professionell.</p></div>
+            <div class="service-card reveal"><div class="service-icon">📋</div><h3>Genehmigungen</h3><p>Unterstützung bei Genehmigungen und Konzessionen. Wir kennen die Vorschriften und begleiten Sie durch den Prozess.</p></div>
+        </div>
+    </section>
+
+    <section class="section products" id="automaten">
+        <div class="section-header reveal">
+            <div class="section-label">Unsere Geräte</div>
+            <h2 class="section-title">Automaten <span class="gold">auf Anfrage</span></h2>
+            <p class="section-subtitle">Alle gängigen Modelle auf Anfrage verfügbar — wir beschaffen und stellen auf</p>
+        </div>
+        <div class="products-showcase">
+            <div class="products-note reveal">
+                <p>Wir können <strong style="color:var(--gold)">alle gängigen Automatenmodelle</strong> namhafter Hersteller auf Anfrage für Sie bereitstellen. Egal ob Merkur, Bally Wulff, Novomatic oder andere — teilen Sie uns Ihre Wünsche mit und wir kümmern uns um die Beschaffung und Aufstellung.</p>
+                <p style="margin-top:1rem;">Gerne beraten wir Sie auch persönlich und empfehlen die optimalen Geräte für Ihren Standort — oder Sie wählen selbst Ihre Wunschgeräte.</p>
+                <p class="cta-text"><a href="#kontakt" style="color: var(--gold); text-decoration: none;">Kontaktieren Sie uns für eine unverbindliche Beratung →</a></p>
+            </div>
+            <!-- AUTOMATEN GRID — hier kommen die Modelle rein wenn Bilder geliefert werden -->
+        </div>
+    </section>
+
+    <section class="section takeover">
+        <div class="takeover-content">
+            <div class="takeover-text reveal">
+                <div class="section-label">Für Betreiber</div>
+                <h2>Standort- & Spielhallen-<span class="gold">Übernahme</span></h2>
+                <p>Sie möchten Ihren Standort oder Ihre Spielhalle abgeben? Wir übernehmen bestehende Standorte zu angemessenen und fairen Konditionen — schnell, diskret und unkompliziert.</p>
+                <p>Sprechen Sie uns vertraulich an. Wir finden eine Lösung, die für beide Seiten passt.</p>
+                <a href="#kontakt" class="btn btn-primary">Vertraulich anfragen →</a>
+            </div>
+            <div class="takeover-visual reveal">
+                <div class="icon">🏢</div>
+                <ul class="takeover-points">
+                    <li>Faire und angemessene Konditionen</li>
+                    <li>Diskrete und vertrauliche Abwicklung</li>
+                    <li>Schnelle Entscheidungsfindung</li>
+                    <li>Übernahme aller bestehenden Geräte möglich</li>
+                    <li>Auch Teilübernahmen möglich</li>
+                    <li>Persönliche Beratung vor Ort</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section regions" id="regionen">
+        <div class="section-header reveal">
+            <div class="section-label">Einzugsgebiet</div>
+            <h2 class="section-title">Unsere <span class="gold">Regionen</span></h2>
+        </div>
+        <div class="regions-grid">
+            <div class="region-card reveal">
+                <h3>♛ Großraum Stuttgart</h3>
+                <p>Baden-Württemberg und Umgebung</p>
+                <div class="region-tags">
+                    <span class="region-tag">Stuttgart</span><span class="region-tag">Böblingen</span><span class="region-tag">Sindelfingen</span><span class="region-tag">Esslingen</span><span class="region-tag">Ludwigsburg</span><span class="region-tag">Reutlingen</span><span class="region-tag">Tübingen</span><span class="region-tag">Heilbronn</span><span class="region-tag">Pforzheim</span><span class="region-tag">Göppingen</span><span class="region-tag">Waiblingen</span>
+                </div>
+            </div>
+            <div class="region-card reveal">
+                <h3>♛ Großraum Frankfurt</h3>
+                <p>Rhein-Main-Gebiet und Umgebung</p>
+                <div class="region-tags">
+                    <span class="region-tag">Frankfurt</span><span class="region-tag">Offenbach</span><span class="region-tag">Darmstadt</span><span class="region-tag">Wiesbaden</span><span class="region-tag">Mainz</span><span class="region-tag">Hanau</span><span class="region-tag">Bad Homburg</span><span class="region-tag">Rüsselsheim</span><span class="region-tag">Aschaffenburg</span><span class="region-tag">Gießen</span><span class="region-tag">Friedberg</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section process" id="ablauf">
+        <div class="section-header reveal">
+            <div class="section-label">So funktioniert's</div>
+            <h2 class="section-title">In 4 Schritten zur <span class="gold">Zusammenarbeit</span></h2>
+        </div>
+        <div class="process-steps">
+            <div class="process-step reveal"><div class="process-number">01</div><div><h3>Anfrage & Beratung</h3><p>Kontaktieren Sie uns unverbindlich. Wir besprechen Ihre Situation und Wünsche — kostenlos und ohne Verpflichtung.</p></div></div>
+            <div class="process-step reveal"><div class="process-number">02</div><div><h3>Standort-Analyse</h3><p>Wir prüfen Ihren Standort persönlich und beraten Sie zu den besten Geräten und Positionen für maximalen Erfolg.</p></div></div>
+            <div class="process-step reveal"><div class="process-number">03</div><div><h3>Geräteauswahl & Aufstellung</h3><p>Wählen Sie Ihre Wunschgeräte oder lassen Sie sich beraten. Lieferung, Aufstellung und Inbetriebnahme übernehmen wir.</p></div></div>
+            <div class="process-step reveal"><div class="process-number">04</div><div><h3>Laufende Betreuung</h3><p>Regelmäßige Wartung, schneller Reparaturservice und Gerätetausch — Sie lehnen sich zurück, wir erledigen den Rest.</p></div></div>
+        </div>
+    </section>
+
+    <hr class="gold-line">
+    <section class="section contact" id="kontakt">
+        <div class="section-header reveal">
+            <div class="section-label">Kontakt</div>
+            <h2 class="section-title">Jetzt <span class="gold">Anfrage stellen</span></h2>
+            <p class="section-subtitle">Wir melden uns innerhalb von 24 Stunden bei Ihnen</p>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-info reveal">
+                <h3>Sprechen Sie mit uns</h3>
+                <p>Ob Gaststätte, Imbiss, Bar oder Spielhalle — wir beraten Sie persönlich und finden die beste Lösung für Ihren Standort.</p>
+                <div class="contact-detail"><div class="contact-detail-icon">✉</div><a href="mailto:info@royal-automaten.de">info@royal-automaten.de</a></div>
+                <div class="contact-detail"><div class="contact-detail-icon">☎</div><a href="tel:+4917660343503">+49 176 60343503</a></div>
+                <div class="contact-detail"><div class="contact-detail-icon">◉</div><span>Hauffstraße 39, 71093 Weil im Schönbuch</span></div>
+                <div class="contact-detail"><div class="contact-detail-icon">📍</div><span>Großraum Stuttgart & Frankfurt</span></div>
+            </div>
+            <div class="contact-form reveal" id="contactForm">
+                <div class="form-row">
+                    <div class="form-group"><label for="name">Name *</label><input type="text" id="name" name="name" required placeholder="Ihr Name"></div>
+                    <div class="form-group"><label for="phone">Telefon *</label><input type="tel" id="phone" name="phone" required placeholder="Ihre Telefonnummer"></div>
+                </div>
+                <div class="form-group"><label for="email">E-Mail</label><input type="email" id="email" name="email" placeholder="Ihre E-Mail-Adresse"></div>
+                <div class="form-row">
+                    <div class="form-group"><label for="type">Art des Standorts</label><select id="type" name="type"><option value="">Bitte wählen...</option><option value="gaststaette">Gaststätte / Restaurant</option><option value="imbiss">Imbiss / Kiosk</option><option value="spielhalle">Spielhalle</option><option value="bar">Bar / Club</option><option value="sonstiges">Sonstiges</option></select></div>
+                    <div class="form-group"><label for="region">Region</label><select id="region" name="region"><option value="">Bitte wählen...</option><option value="stuttgart">Großraum Stuttgart</option><option value="frankfurt">Großraum Frankfurt</option><option value="andere">Andere Region</option></select></div>
+                </div>
+                <div class="form-group"><label for="interest">Interesse an</label><select id="interest" name="interest"><option value="">Bitte wählen...</option><option value="aufstellung">Automaten-Aufstellung</option><option value="uebernahme">Standort-/Spielhallen-Übernahme</option><option value="wechsel">Aufsteller wechseln</option><option value="beratung">Allgemeine Beratung</option></select></div>
+                <div class="form-group"><label for="message">Ihre Nachricht</label><textarea id="message" name="message" placeholder="Erzählen Sie uns von Ihrem Standort und Ihren Wünschen..."></textarea></div>
+                <button type="button" class="form-submit" onclick="handleSubmit()">Kostenlose Beratung anfordern</button>
+                <p class="form-note">Ihre Daten werden vertraulich behandelt und nicht an Dritte weitergegeben.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-left">
+                <img src="logo.jpg" alt="Royal Automaten" style="height:32px;width:auto;">
+                <span class="footer-copy">© 2026 Royal Automaten Service — Timo Scharsack. Alle Rechte vorbehalten.</span>
+            </div>
+            <div class="footer-links">
+                <a href="impressum.html">Impressum</a>
+                <a href="datenschutz.html">Datenschutz</a>
+                <a href="#kontakt">Kontakt</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 50); });
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        navToggle.addEventListener('click', () => { navToggle.classList.toggle('active'); navLinks.classList.toggle('active'); document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : ''; });
+        function closeMenu() { navToggle.classList.remove('active'); navLinks.classList.remove('active'); document.body.style.overflow = ''; }
+        const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        function handleSubmit() {
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const type = document.getElementById('type').value;
+            const region = document.getElementById('region').value;
+            const interest = document.getElementById('interest').value;
+            const message = document.getElementById('message').value.trim();
+            if (!name || !phone) { alert('Bitte füllen Sie mindestens Name und Telefon aus.'); return; }
+            const subject = encodeURIComponent('Neue Anfrage von ' + name);
+            const body = encodeURIComponent('Name: ' + name + '\nTelefon: ' + phone + '\nE-Mail: ' + email + '\nStandort-Art: ' + type + '\nRegion: ' + region + '\nInteresse: ' + interest + '\n\nNachricht:\n' + message);
+            window.location.href = 'mailto:info@royal-automaten.de?subject=' + subject + '&body=' + body;
+        }
+        document.querySelectorAll('a[href^="#"]').forEach(link => { link.addEventListener('click', e => { const t = document.querySelector(link.getAttribute('href')); if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); } }); });
+    </script>
+</body>
+</html>
